@@ -20,3 +20,25 @@
 
 
 <h6>Thus the tree is split at every node by the Gain by selecting the attribute with the highest gain. The process is then repeated again </h6>
+
+<h5>The ID3.py file :</h5>
+
+<h6>Classes :</h6>
+
+<h6>`ID3` : </h6>
+<h6>Needs to be initialized with the following values : </h6>
+
+<h6>`training_list` : a list containing lists starting with the column names which are names of the attributes and the last column is the named 'outcome' (positive/negative). The subsequent lists will contain the rows of the values</h6>
+<h6>Example - </h6>
+<h6>The following table - </h6>
+
+| Outlook       | Temperature   |Outcome|
+| ------------- | ------------- | ----- |
+| Sunny      | Hot | Yes |
+| Rain     | Warm      |   Yes |
+| Sunny | Cool      |    No |
+
+[['Outlook','Temperature','outcome'],['Sunny','Hot','Yes'],['Rain','Warm','Yes'],['Sunny','Cool','No']]</h6>
+<h6>`positive_outcome` : the value of the positive outcome</h6>
+
+
