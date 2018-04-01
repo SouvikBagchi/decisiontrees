@@ -12,7 +12,7 @@
 
 <h6>Information Gain is thus - </h6>
 
-<h6>Gain(S,A) = S - Sum (S<sub>v</sub>/S)S<sub>v</sub></h6>
+<h6>Gain(S,A) = S - Sum (S<sub>v</sub>/S)Entropy(S<sub>v</sub>)</h6>
 
 <h6>Where A is the set of all values for attribute A and S<sub>v</sub> is the subset of S for which attribute A has value v</h6>
 
