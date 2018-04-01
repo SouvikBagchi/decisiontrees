@@ -6,11 +6,10 @@ class ID3():
   self.positive_outcome = positive_outcome
   #INITIALIZE THE TRAINING LIST
   self.training_list = training_list
-  self.attribute_names = training_list[0][:-1] #All the elements of the first list save the last
+  self.attribute_names = training_list[0][:]
   self.num_attributes = len(self.attribute_names)
   self.training_set_len = len(self.training_list) - 1 #first list is the row names
   self.attribute_list = []
-  
   #BUILD THE LISTS OF THE ATTRIBUTE
   for attr in self.attribute_names :
   	self.attribute_list.append([attr])
@@ -23,6 +22,11 @@ class ID3():
     temp_list.append(self.training_list[j+1][i]) #rowsxcolumns
    #CHANGE THE OLD ATTRIBUTE LIST 
    self.attribute_list[i] = temp_list
+
+  #STORE OUTCOME IN A SEPARATE LIST AND REMOVE FROM ATTRIBUTE LIST
+  self.outcome_list = self.attribute_list[-1]
+  del self.attribute_list[-1]
+
 
  #THIS METHOD WILL CALCULATE THE ENTROPY
  def entropy(no_of_positive_outcomes,no_of_negative_outcomes):
