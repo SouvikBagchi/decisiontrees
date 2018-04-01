@@ -38,7 +38,7 @@
 | Rain     | Warm      |   Yes |
 | Sunny | Cool      |    No |
 
-[['Outlook','Temperature','outcome'],['Sunny','Hot','Yes'],['Rain','Warm','Yes'],['Sunny','Cool','No']]</h6>
-<h6>`positive_outcome` : the value of the positive outcome</h6>
+<h6>Should be represented in this form -  [['Outlook','Temperature','outcome'],['Sunny','Hot','Yes'],['Rain','Warm','Yes'],['Sunny','Cool','No']] for initializing thhe class ID3</h6>
+<h6>`positive_outcome` : the value of the positive outcome in the above example 'Yes'</h6>
 
 
