@@ -25,10 +25,10 @@
 
 <h6>Classes :</h6>
 
-<h6>`ID3` : </h6>
+`ID3` :
 <h6>Needs to be initialized with the following values : </h6>
 
-<h6>`training_list` : a list containing lists starting with the column names which are names of the attributes and the last column is the named 'outcome' (positive/negative). The subsequent lists will contain the rows of the values</h6>
+`training_list` :  <h6>a list containing lists starting with the column names which are names of the attributes and the last column is the named 'outcome' (positive/negative). The subsequent lists will contain the rows of the values</h6>
 <h6>Example - </h6>
 <h6>The following table - </h6>
 
@@ -39,6 +39,4 @@
 | Sunny | Cool      |    No |
 
 <h6>Should be represented in this form -  [['Outlook','Temperature','outcome'],['Sunny','Hot','Yes'],['Rain','Warm','Yes'],['Sunny','Cool','No']] for initializing thhe class ID3</h6>
-<h6>`positive_outcome` : the value of the positive outcome in the above example 'Yes'</h6>
-
-
+`positive_outcome` : <h6>the value of the positive outcome in the above example 'Yes'</h6>
