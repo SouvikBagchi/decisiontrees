@@ -6,7 +6,7 @@ class ID3():
   self.positive_outcome = positive_outcome
   #INITIALIZE THE TRAINING LIST
   self.training_list = training_list
-  self.attribute_names = training_list[0][:]
+  self.attribute_names = training_list[0][:] #include outcome which will be removed later
   self.num_attributes = len(self.attribute_names)
   self.training_set_len = len(self.training_list) - 1 #first list is the row names
   self.attribute_list = []
@@ -27,7 +27,21 @@ class ID3():
   self.outcome_list = self.attribute_list[-1]
   del self.attribute_list[-1]
 
+  #Set the tree length
+  self.tree_length = self.num_attributes-1
+  #INITIALIZE AN EMPTY TREE
+  self.tree = {}
 
+
+ #THIS METHOD STARTS TO MAKE THE DECISION TREE
+ def make_tree():
+  #LOOP TREE LENGTH
+  for i in range(0,self.tree_length):
+   #CALCULATE GAIN FOR ALL ATTRIBUTES
+   gains = []
+   for attr in self.attribute_lists:
+    gains.append(gain(attr))
+ 
  #THIS METHOD WILL CALCULATE THE ENTROPY
  def entropy(no_of_positive_outcomes,no_of_negative_outcomes):
 
@@ -40,8 +54,18 @@ class ID3():
   return(s)
 
  #THIS METHOD WILL CALCULATE THE GAIN	
- def gain(entropy):
-  pass
+ def gain(total_entropy, len_training_set, attribute_list,outcome_list):
+  #GET THE UNIQUE ATTRIBUTES
+  attributes = [for attr in set(attribute_list)]
+
+
+  #INITIALIIZE GAIN WITH total_entropy
+  gain = total_entropy
+  #LOOP LENGHT OF ATTRIBUTE VALUES TO SUBTRACT THE CORR SV/S
+  for i in range(0,len_training_set):
+  	gain -= 1
+  	
 
 training_list = [['Outlook','Temperature','outcome'],['Sunny','Hot','Yes'],['Rain','Warm','Yes'],['Sunny','Cool','No']]
+x = training_list
 y = ID3(training_list,'Yes')
