@@ -56,15 +56,22 @@ class ID3():
  #THIS METHOD WILL CALCULATE THE GAIN	
  def gain(total_entropy, len_training_set, attribute_list,outcome_list):
   #GET THE UNIQUE ATTRIBUTES
-  attributes = [for attr in set(attribute_list)]
+  attributes = []
+  for attr in set(attribute_list):
+  	attributes.append(attr)
+  #CREATE A DICT OF ATTRIBUTE
+  attribute_dict = {}
+  for i in attributes :
+  	attribute_dict[str(i)] = []
+  #LOOP THROUGH THE OUTCOME
 
-
+  
   #INITIALIIZE GAIN WITH total_entropy
   gain = total_entropy
   #LOOP LENGHT OF ATTRIBUTE VALUES TO SUBTRACT THE CORR SV/S
   for i in range(0,len_training_set):
-  	gain -= 1
-  	
+   gain -= 1
+
 
 training_list = [['Outlook','Temperature','outcome'],['Sunny','Hot','Yes'],['Rain','Warm','Yes'],['Sunny','Cool','No']]
 x = training_list
