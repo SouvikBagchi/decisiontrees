@@ -47,12 +47,47 @@ class ID3():
 
  #THIS METHOD STARTS TO MAKE THE DECISION TREE
  def make_tree(self):
-  #LOOP THROUGH THE ATTRIBUTE LIST
-   for i in self.attribute_list:
+
+  attribute_list = self.attribute_list
+  outcome_list = self.outcome_list
+  x=2
+  #CONTINUE TILL THE THERE ARE NO OUTCOMES LEFT
+  while x != 1: #SINCE THE FIRST ELEMENT IF THE COL NAME len(outcome_list)
+   #LOOP THROUGH THE ATTRIBUTE LIST
+   gains = {}
+   for attr in attribute_list:
+    #print(attr)
     # print(i)
     # print(self.outcome_list)
     # print("")
-    print(self.calculate_gain(i,self.outcome_list))
+    #print(self.calculate_gain(attr,self.outcome_list))
+    #STORE THE ATTRIBUTE GAINS IN A SEPARATE LIST
+    gains[str(attr[0])] = self.calculate_gain(attr,self.outcome_list)
+    x=1
+   # print(gains)
+
+   node_attr = None
+   #CHECK WHICH GAIN IS BIGGER
+   count = 0
+   for gain in gains:
+    # print("Count : "+str(count))
+    if count == 0:
+     node_attr =gain
+     # print("First attr : "+str(node_attr))
+    else:
+     
+     if gains[node_attr] <= gains[gain]:
+      # print("node attr value: "+str(gains[node_attr]))
+      # print("gain attr value: "+str(gains[gain]))
+      node_attr = gain
+    count+=1
+
+   #Check the gains
+   # print("gains : "+str(gains))
+   # print("Highest gain : "+str(node_attr))
+
+   #THE HIGHEST GAIN IS NOW RESERVED IN NODE ATTR
+
 
  #THIS METHOD WILL CALCULATE THE ENTROPY
  def calculate_entropy(self,num_positive_outcomes,num_negative_outcomes):
@@ -142,18 +177,21 @@ class ID3():
   return(gain)
 
 training_list = [
-['Outlook','Temperature','outcome'],
-['Sunny','Hot','Yes'],
-['Rain','Warm','Yes'],
-['Sunny','Cool','No'],
-['Cloudy','Cool','Yes'],
-['Rain','Cool','No'],
-['Rain','Hot','Yes'],
-['Cloudy','Warm','Yes'],
-['Sunny','Warm','No'],
-['Windy','Cool','Yes'],
-['Windy','Warm','No'],
-['Windy','Hot','No']
+['Outlook','Temperature','Humidity','Wind','outcome'],
+['Sunny','Hot','High','Weak','No'],
+['Sunny','Hot','High','Strong','No'],
+['Overcast','Hot','High','Weak','Yes'],
+['Rain','Mild','High','Weak','Yes'],
+['Rain','Cool','Normal','Weak','Yes'],
+['Rain','Cool','Normal','Strong','No'],
+['Overcast','Cool','Normal','Strong','Yes'],
+['Sunny','Mild','High','Weak','No'],
+['Sunny','Cool','Normal','Weak','Yes'],
+['Rain','Mild','Normal','Weak','Yes'],
+['Sunny','Mild','Normal','Strong','Yes'],
+['Overcast','Mild','High','Strong','Yes'],
+['Overcast','Hot','Normal','Weak','Yes'],
+['Rain','Mild','High','Strong','No']
 ]
 x = training_list
 y = ID3(x,'Yes')
